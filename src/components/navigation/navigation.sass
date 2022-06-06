@@ -1,0 +1,50 @@
+@import './../../styles/variables.sass'
+
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+nav
+    ul
+        float: left
+        padding: 0px
+        li
+            color: $lightBlue
+            font-size: 16px
+            font-family: 'Montserrat', sans-serif
+            list-style: none
+            display: inline
+            font-weight: 400
+            &::after
+                padding: 0px 10px
+                content: ">"
+                font-weight: 700
+            &:last-child::after
+                content: ''
+            &:last-child
+                font-weight: 600
+                font-size: 18px
+            a
+                transition: 1s ease
+                &:hover
+                    color: $darkBlue
+
+.nav-searchbox
+    @include clearfix()
+    float: left
+
+input
+    border: 1px solid $grey
+    border-radius: 5px
+    padding: 5px 5px 5px 25px
+    @include clearfix()
+    background-image: url('./../../images/icons/search.svg')
+    background-repeat: no-repeat
+    background-size: 20px
+    background-position: 2px 50%
+    display: flex
+    align-items: center
+    &:focus
+        border: 2px solid $grey
+        outline: none

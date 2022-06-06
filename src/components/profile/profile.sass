@@ -1,0 +1,35 @@
+@import './../../styles/variables.sass'
+
+.profile
+    margin: 25px 0px
+    float: right
+    font-size: 14px
+    font-family: 'Roboto', sans-serif
+    .avatar
+        border-radius: 100%
+        border: 3px solid $lightBlue
+        float: right
+        height: 50px
+        width: auto
+        cursor: pointer
+    .profile-info
+        overflow: hidden
+        span
+            color: $darkBlue
+            font-weight: 700
+            font-size: 16px
+            margin: 5px 10px
+    .profile-nav
+        ul
+            list-style: none
+            float: right
+            padding: 0px
+            li
+                display: inline
+                padding: 0px 5px
+                a
+                    font-weight: 500
+                    &::after
+                        content: '➜'
+                        font-weight: 800
+                        margin: 0px 5px

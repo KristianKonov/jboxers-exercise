@@ -1,0 +1,21 @@
+$background: #FFFCF8
+
+$grey: #C2C2C2
+
+$darkBlue: #385F66
+
+$lightBlue: #2190A2
+
+@mixin clearfix()
+  &:before,
+  &:after
+    content: " " 
+    display: table 
+  &:after
+    display: block
+    clear: both
+    height: 1px
+    margin-top: -1px
+    visibility: hidden
+  &
+    *zoom: 1
