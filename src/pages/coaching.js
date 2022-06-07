@@ -3,6 +3,7 @@ import CoachingInfo from '../components/coaching-info'
 import Navigation from '../components/navigation'
 import Profile from '../components/profile'
 import Overview from '../components/overview'
+import StudentPerformance from '../components/student'
 import './coaching.sass'
 
 const CoachingPage = () => {
@@ -14,6 +15,7 @@ const CoachingPage = () => {
                 <Profile />
             </div>
             <Overview />
+            <StudentPerformance />
         </div>
     )
 }

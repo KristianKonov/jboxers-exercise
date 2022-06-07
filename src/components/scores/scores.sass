@@ -7,9 +7,13 @@
     @include clearfix()
     padding: 20px
     border-radius: 10px
+    @include for-phone-only
+        text-align: center
     .score
         display: flex
         align-items: center
+        @include for-phone-only
+            display: inline-flex
     .score-grade
         margin: 5px
         z-index: 200
@@ -57,6 +61,24 @@
         margin: 0px 5px
     .category-chart
         float: left
+        position: relative
+        @include for-phone-only
+            display: inline-table
+            float: none
+    .chart-text
+        position: absolute
+        left: 0
+        right: 0
+        top: 36%
+        text-align: center
+        p
+            font-weight: 700
+            color: rgba(0,0,0,.6)
+            margin: 0
+        span
+            color: green
+            font-weight: 700
+            font-size: 32px
     .category-title
         color: $lightBlue
         font-family: "Montserrat", sans-serif
@@ -72,6 +94,15 @@
     .category-column
         float: left
         margin: 0px 20px
+        @include for-tablets
+            margin: 0 2.5%
+            width: 40%
+            float: none
+            display: inline-block
+        @include for-phone-only
+            width: 70%
+            text-align: center
+
         h3
             color: #444
             font-family: 'Roboto', sans-serif
@@ -88,6 +119,8 @@
         ol
             padding: 0px 0px 0px 15px
             width: 200px
+            @include for-tablets
+                width: auto
             li
                 color: $grey
                 font-weight: 500
@@ -95,3 +128,5 @@
                 float: right
         h1
             color: $lightBlue
+            font-family: 'Montserrat', sans-serif
+            font-weight: 500

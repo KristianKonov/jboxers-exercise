@@ -1,0 +1,58 @@
+@import './../../styles/variables.sass'
+    
+.student-performance
+    display: flex
+    align-items: center
+    ul
+        list-style: none
+        padding: 0
+        display: inline-flex
+        align-items: center
+        margin: 0 50px 0px 0px
+        li
+            display: inline-flex
+            align-items: center
+            font-weight: 500
+            margin: 10px 5px 0px 5px
+            cursor: pointer
+            color: $lightBlue
+        .active
+            color: #444
+            font-weight: 700
+            cursor: unset
+            padding-bottom: 10px
+            border-bottom: 5px solid $lightBlue
+        .student-score-dropdown
+            display: inline-flex
+            position: relative
+            div
+                display: block
+                position: absolute
+                top: 20px
+            .sorting-submit
+                background-color: $lightBlue
+                padding: 10px 40px
+                color: #fff
+                border: none
+                border-radius: 10px
+                margin: 10px 0px
+        
+.fromDatePicker,
+.toDatePicker
+    border: none
+    width: 100px
+    background-color: none
+    color: $lightBlue
+    font-weight: 700
+    font-family: 'Montserrat', sans-serif
+    background: none
+
+.student-box
+    margin: 20px 0px
+    background-color: #fff
+    box-shadow: 0px 0px 15px rgba(0,0,0,.2)
+    @include clearfix()
+    padding: 20px
+    border-radius: 10px
+    @include for-phone-only
+        text-align: center

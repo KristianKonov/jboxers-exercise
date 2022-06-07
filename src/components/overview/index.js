@@ -4,25 +4,33 @@ import OverallScores from '../scores';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Chart } from "react-google-charts";
 
+
+var studentsE = 259
+var studentsM = 68
+var studentsN = 18
+
 export const data = [
-    ["Pac Man", "Percentage"],
-    ["", 259],
-    ["", 68],
-    ["", 5],
-    ["", 332],
+    ["", ""],
+    ["Students E", studentsE],
+    ["Students M", studentsM],
+    ["Students N", studentsN],
+    ["", (studentsE + studentsM + studentsN)],
 ];
-  
+
 export const options = {
+    pieHole: 0.8,
     legend: "none",
-    pieSliceText: "none",
+    pieSliceText: 'none',
     pieStartAngle: 270,
-    tooltip: { trigger: "hover" },
+    backgroundColor: 'transparent',
+    is3D: false,
+    hAxis: { textPosition: 'none' },
     slices: {
         0: { color: "green" },
         1: { color: "orange" },
         2: { color: "red" },
         3: { color: "transparent" },
-    },
+    }
 };
 
 const Overview = () => {
@@ -47,19 +55,25 @@ const Overview = () => {
             </div>
             <div className="category-column">
                 <h3 className="category-subtitle">Overall Scores</h3>
-                <OverallScores students={259} grade={"E"} />
-                <OverallScores students={68} grade={"M"} />
-                <OverallScores students={5} grade={"N"} />
+                <OverallScores students={studentsE} grade={"E"} />
+                <OverallScores students={studentsM} grade={"M"} />
+                <OverallScores students={studentsN} grade={"N"} />
             </div>
             <div className="category-chart">
-            <Chart
-                className="chart"
-                chartType="PieChart"
-                data={data}
-                options={options}
-                width={"300px"}
-                height={"400px"}
-            />
+                <div className="category-chart-wrapper">
+                    <Chart
+                        className="chart"
+                        chartType="PieChart"
+                        data={data}
+                        options={options}
+                        width={"400px"}
+                        height={"400px"}
+                    />
+                </div>
+                <div className="chart-text">
+                    <p>Overall Averages</p>
+                    <span>86%</span>
+                </div>
             </div>
         </div>
     )

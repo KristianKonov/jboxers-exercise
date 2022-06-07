@@ -1,8 +1,10 @@
 @import './../styles/variables.sass'
 
 .page-wrapper
-    width: 1000px
+    width: 1100px
     margin: 0 auto
+    @include for-tablets
+        width: 98%
 
 body
     background-color: $background
