@@ -2,6 +2,28 @@ import React from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import OverallScores from '../scores';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Chart } from "react-google-charts";
+
+export const data = [
+    ["Pac Man", "Percentage"],
+    ["", 259],
+    ["", 68],
+    ["", 5],
+    ["", 332],
+];
+  
+export const options = {
+    legend: "none",
+    pieSliceText: "none",
+    pieStartAngle: 270,
+    tooltip: { trigger: "hover" },
+    slices: {
+        0: { color: "green" },
+        1: { color: "orange" },
+        2: { color: "red" },
+        3: { color: "transparent" },
+    },
+};
 
 const Overview = () => {
     return(
@@ -28,6 +50,16 @@ const Overview = () => {
                 <OverallScores students={259} grade={"E"} />
                 <OverallScores students={68} grade={"M"} />
                 <OverallScores students={5} grade={"N"} />
+            </div>
+            <div className="category-chart">
+            <Chart
+                className="chart"
+                chartType="PieChart"
+                data={data}
+                options={options}
+                width={"300px"}
+                height={"400px"}
+            />
             </div>
         </div>
     )
