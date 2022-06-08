@@ -1,5 +1,10 @@
 @import './../../styles/variables.sass'
-    
+
+body 
+    animation: fadeInAnimation ease 1s
+    animation-iteration-count: 1
+
+
 .student-performance
     display: flex
     align-items: center
@@ -24,7 +29,7 @@
             color: #444
             font-weight: 700
             cursor: unset
-            padding-bottom: 10px
+            padding: 10px 0px
             border-bottom: 5px solid $lightBlue
         .student-score-dropdown
             display: inline-flex
@@ -151,6 +156,9 @@
     width: 15%
     @include for-phone-only
         width: auto
+.student-date-sorting
+    input
+        cursor: pointer
 .category-sorting-data
     display: flex
     color: $lightBlue
