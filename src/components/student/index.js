@@ -11,6 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DatePicker from "react-datepicker";
 import DownloadIcon from '@mui/icons-material/Download';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 import './../scores/scores.sass'
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -75,87 +76,6 @@ const BpIcon = styled('span')(({ theme }) => ({
     );
   }
 
-  export const data = [
-    [
-      { type: "string", id: "Position" },
-      { type: "string", id: "Name" },
-      { type: "number", id: "Start" },
-      { type: "number", id: "End" },
-    ],
-    [
-      "Goals",
-      "50",
-      0,
-      50,
-    ],
-    [
-      "Goals",
-      "32",
-      50,
-      82,
-    ],
-    [
-      "Goals",
-      "20",
-      82,
-      102,
-    ],
-    [
-      "Reality",
-      "25",
-      0,
-      25,
-    ],
-    [
-      "Reality",
-      "18",
-      25,
-      25+18,
-    ],
-    [
-      "Reality",
-      "40",
-      25+18,
-      25+18+40,
-    ],
-    [
-      "Obstacles",
-      "30",
-      0,
-      30,
-    ],
-    [
-      "Obstacles",
-      "10",
-      30,
-      40,
-    ],
-    [
-      "Obstacles",
-      "8",
-      40,
-      48,
-    ],
-    [
-      "Way Forward",
-      "35",
-      0,
-      35,
-    ],
-    [
-      "Way Forward",
-      "9",
-      35,
-      44,
-    ],
-    [
-      "Way Forward",
-      "3",
-      44,
-      47,
-    ]
-  ];
-
 const StudentPerformance = () => {
     const [ scoreSort, setScoreSort ] = useState(false)
     const [ sortValue, setSortValue ] = useState('By Score')
@@ -168,6 +88,11 @@ const StudentPerformance = () => {
           setScoreSort(!scoreSort)
         },1000)
     }
+
+    const handleClickAway = () => {
+      setScoreSort(!scoreSort)
+    }
+
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
@@ -187,6 +112,7 @@ const StudentPerformance = () => {
                     <div className="student-score-dropdown">
                         <li className={scoreSort ? "flip" : "" } onClick={toggleScoreSorting}>{sortValue} <KeyboardArrowDownIcon /></li>
                         {scoreSort &&
+                          <ClickAwayListener onClickAway={handleClickAway}>
                             <FormControl>
                                 <RadioGroup
                                     defaultValue={sortValue}
@@ -200,6 +126,7 @@ const StudentPerformance = () => {
                                     <button className="sorting-submit">Select</button>
                                 </RadioGroup>
                             </FormControl>
+                          </ClickAwayListener>
                         }
                     </div>
                 </ul>

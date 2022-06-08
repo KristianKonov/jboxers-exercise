@@ -2,6 +2,7 @@ import React from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import OverallScores from '../scores';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Chart } from "react-google-charts";
 
 
@@ -52,6 +53,10 @@ const Overview = () => {
                     <li>Obsticals<span>210</span></li>
                     <li>Way Forward<span>98</span></li>
                 </ol>
+                <div className="category-link-wrapper">
+                    <span>View StoryFile</span>
+                    <ArrowForwardIcon />
+                </div>
             </div>
             <div className="category-column">
                 <h3 className="category-subtitle">Overall Scores</h3>

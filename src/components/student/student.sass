@@ -44,6 +44,10 @@ body
                     z-index: 999
             .sorting-submit
                 background-color: $lightBlue
+                cursor: pointer
+                font-weight: 500
+                font-size: 14px
+                font-family: 'Montserrat', sans-serif
                 padding: 10px 40px
                 color: #fff
                 border: none
@@ -156,6 +160,21 @@ body
     width: 15%
     @include for-phone-only
         width: auto
+.category-title
+    color: $lightBlue
+    font-family: "Montserrat", sans-serif
+    display: flex
+    margin: 10px 0px
+    padding-bottom: 5px
+    align-items: center
+    @include for-phone-only
+        padding-bottom: 50px
+    svg
+        height: 35px
+        width: auto
+        margin: 0px 5px
+        path
+            color: #444
 .student-date-sorting
     input
         cursor: pointer
@@ -175,9 +194,24 @@ body
     span
         font-family: 'Montserrat', sans-serif
         font-weight: 600
-        font-size: 16px
+        font-size: 14px
         @include for-phone-only
             display: none
+
+.category-link-wrapper
+    color: $lightBlue
+    font-weight: 700
+    display: flex
+    margin: 10px 0px
+    font-family: 'Montserrat', sans-serif
+    font-size: 14px
+    align-items: center
+    transition: .5s ease
+    cursor: pointer
+    &:hover
+        color: $darkBlue
+    span
+        margin: 0px 5px 0px 0px
 
 .category-export
     float: right
