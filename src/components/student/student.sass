@@ -3,6 +3,8 @@
 .student-performance
     display: flex
     align-items: center
+    @include for-phone-only
+        display: block
     ul
         list-style: none
         padding: 0
@@ -11,11 +13,13 @@
         margin: 0 50px 0px 0px
         li
             display: inline-flex
+            margin: 0px 5px
             align-items: center
             font-weight: 500
-            margin: 10px 5px 0px 5px
             cursor: pointer
             color: $lightBlue
+        svg
+            transition: .5s ease
         .active
             color: #444
             font-weight: 700
@@ -29,6 +33,10 @@
                 display: block
                 position: absolute
                 top: 20px
+                div
+                    background-color: #efefef
+                    padding: 10px 20px
+                    z-index: 999
             .sorting-submit
                 background-color: $lightBlue
                 padding: 10px 40px
@@ -37,6 +45,10 @@
                 border-radius: 10px
                 margin: 10px 0px
         
+.flip
+    svg
+        transform: rotate(180deg)
+
 .fromDatePicker,
 .toDatePicker
     border: none
@@ -56,3 +68,128 @@
     border-radius: 10px
     @include for-phone-only
         text-align: center
+
+.category-sorting-row
+    display: flex
+    align-items: center
+    border-bottom: 1px solid $grey
+    padding-bottom: 15px
+    justify-content: space-between
+    margin-bottom: 10px
+.category-sorting-title
+    font-weight: 700
+    margin: 0px 10px
+.category-sorting-questions
+    width: 55%
+    @include for-phone-only
+        width: 60%
+    margin: 0px 10px
+    text-align: left
+.chart-data
+    height: 20px
+    display: inline-flex
+    align-items: center
+    width: 100px
+    padding: 5px 0px
+    font-weight: 700
+.green
+    background:-moz-linear-gradient(0deg, rgba(69, 237, 90, 1) 0%, rgba(38, 160, 62, 1) 100%) 
+    background:-webkit-linear-gradient(0deg, rgba(69, 237, 90, 1) 0%, rgba(38, 160, 62, 1) 100%)
+    background:-o-linear-gradient(0deg, rgba(69, 237, 90, 1) 0%, rgba(38, 160, 62, 1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45ED5A', endColorstr='#26A03E', GradientType=1 )
+    background:-ms-linear-gradient(0deg, rgba(69, 237, 90, 1) 0%, rgba(38, 160, 62, 1) 100%)
+    background: linear-gradient(0deg, rgba(69, 237, 90, 1) 0%, rgba(38, 160, 62, 1) 100%)
+    opacity: .7
+    border-top-left-radius: 10px
+    border-bottom-left-radius: 10px
+    transition: .5s ease
+    &:hover
+        opacity: .9
+.orange
+    background:-moz-linear-gradient(0deg, rgba(250, 212, 131, 1) 0%, rgba(213, 156, 57, 1) 100%)
+    background:-webkit-linear-gradient(0deg, rgba(250, 212, 131, 1) 0%, rgba(213, 156, 57, 1) 100%)
+    background:-o-linear-gradient(0deg, rgba(250, 212, 131, 1) 0%, rgba(213, 156, 57, 1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAD483', endColorstr='#D59C39', GradientType=1 )
+    background:-ms-linear-gradient(0deg, rgba(250, 212, 131, 1) 0%, rgba(213, 156, 57, 1) 100%)
+    background: linear-gradient(0deg, rgba(250, 212, 131, 1) 0%, rgba(213, 156, 57, 1) 100%)
+    transition: .5 ease
+    &:hover
+        opacity: .9
+.red
+    background:-moz-linear-gradient(0deg, rgba(251, 177, 179, 1) 0%, rgba(236, 47, 76, 1) 100%)
+    background:-webkit-linear-gradient(0deg, rgba(251, 177, 179, 1) 0%, rgba(236, 47, 76, 1) 100%)
+    background:-o-linear-gradient(0deg, rgba(251, 177, 179, 1) 0%, rgba(236, 47, 76, 1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FBB1B3', endColorstr='#EC2F4C', GradientType=1 )
+    background:-ms-linear-gradient(0deg, rgba(251, 177, 179, 1) 0%, rgba(236, 47, 76, 1) 100%)
+    background: linear-gradient(0deg, rgba(251, 177, 179, 1) 0%, rgba(236, 47, 76, 1) 100%)
+    border-top-right-radius: 10px
+    border-bottom-right-radius: 10px
+    transition: .5 ease
+    &:hover
+        opacity: .9
+.category-label
+    color: #fff
+    padding: 0px 5px
+    font-size: 18px
+.category-right-wrapper
+    width: 20%
+    @include for-phone-only
+        width: auto
+    display: flex
+    align-items: center
+    justify-content: space-between
+.category-sorting-average
+    margin: 0px 10px
+    p
+        margin-top: -35px
+    span
+        font-size: 18px
+        font-family: 'Montserrat', sans-serif
+        font-weight: 700
+        color: #888
+.category-title-wrapper
+    width: 15%
+    @include for-phone-only
+        width: auto
+.category-sorting-data
+    display: flex
+    color: $lightBlue
+    float: right
+    align-items: center
+    cursor: pointer
+    margin: 0px 0px 0px 10px
+    transition: .5s ease
+    &:hover
+        color: $darkBlue
+    svg
+        height: 25px
+        width: auto
+    span
+        font-family: 'Montserrat', sans-serif
+        font-weight: 600
+        font-size: 16px
+        @include for-phone-only
+            display: none
+
+.category-export
+    float: right
+    display: flex
+    align-items: center
+    color: $lightBlue
+    cursor: pointer
+    font-weight: 700
+    transition: .5s ease
+    opacity: .8
+    font-family: 'Montserrat', sans-serif
+    font-size: 14px
+    margin: 10px 5px
+    &:hover
+        opacity: 1
+    svg
+        height: 25px
+        margin: 0px 0px 0px 5px
+        path
+            fill: $lightBlue
+            transition: .5s ease
+            &:hover
+                fill: $darkBlue

@@ -9,10 +9,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DatePicker from "react-datepicker";
-import { Chart } from "react-google-charts";
+import DownloadIcon from '@mui/icons-material/Download';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import './../scores/scores.sass'
 
 import "react-datepicker/dist/react-datepicker.css";
+import SortingItem from '../sorting-item';
 
 const BpIcon = styled('span')(({ theme }) => ({
     borderRadius: '50%',
@@ -162,7 +164,9 @@ const StudentPerformance = () => {
     }
     const sortHandler = (props) => {
         setSortValue(props)
-        setScoreSort(!scoreSort)
+        setTimeout(() => {
+          setScoreSort(!scoreSort)
+        },1000)
     }
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -181,7 +185,7 @@ const StudentPerformance = () => {
                 <ul className="student-sorting">
                     <li>All Students <KeyboardArrowDownIcon /></li>
                     <div className="student-score-dropdown">
-                        <li onClick={toggleScoreSorting}>{sortValue} <KeyboardArrowDownIcon /></li>
+                        <li className={scoreSort ? "flip" : "" } onClick={toggleScoreSorting}>{sortValue} <KeyboardArrowDownIcon /></li>
                         {scoreSort &&
                             <FormControl>
                                 <RadioGroup
@@ -202,7 +206,17 @@ const StudentPerformance = () => {
             </div>
             <div className="student-box">
                 <h2 className="category-title"><AccountCircleIcon /> Student Performance</h2>
-                <Chart chartType="Timeline" data={data} width="100%" height="300px" />;
+                <SortingItem title="Goals" firstLabel={50} secondLabel={30} thirdLabel={20} flag={true} average={"80%"} />
+                <SortingItem title="Reality" firstLabel={25} secondLabel={18} thirdLabel={40} flag={false} average={"52%"} />
+                <SortingItem title="Obstacles" firstLabel={30} secondLabel={10} thirdLabel={8} flag={false} average={"83%"} />
+                <SortingItem title="Way Forward" firstLabel={35} secondLabel={9} thirdLabel={3} flag={false} average={"94%"} />
+                <div className="category-export">
+                    <DownloadIcon />
+                    <span>
+                      Download
+                    </span>
+                    <PictureAsPdfIcon />
+                </div>
             </div>
         </>
     )

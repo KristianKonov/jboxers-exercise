@@ -12,6 +12,9 @@
         width: auto
         border-radius: 100%
         float: left
+        transition: 1s ease
+        &:hover
+            transform: scale(1.1)
     .coaching-info
         margin: 0px 10px
         font-weight: 700
@@ -26,6 +29,9 @@
                 padding: 0px 5px
                 path
                     fill: $lightBlue
+                    transition: .5s ease
+                    &:hover
+                        fill: $darkBlue
         p
             margin: 5px 0px
             color: $grey
